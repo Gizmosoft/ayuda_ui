@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Access.css";
 import getBaseUrl from "../../utils/BaseUrl";
 import { BalloonNotif } from "../../components/Notifs/BalloonNotif.js";
 import { saveUserToSessionStorage } from "../../utils/SessionHandler.js";
 import { getUserByEmailId } from "../../api/UserRequests.js";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [error, setError] = useState(false); // State to control the error Snackbar
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const handleEmailAddressChange = (e) => {
     setEmailId(e.target.value);
@@ -24,7 +26,7 @@ export const Login = () => {
       const response = await getUserByEmailId(emailId)
       console.log(response.data);
       saveUserToSessionStorage(response.data);
-      // TODO: Store user in session
+      setIsAuthenticated(true); // set user auth
       navigate("/dashboard");
     } catch (error) {
       // Handle errors
