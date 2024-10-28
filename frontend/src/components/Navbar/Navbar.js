@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from '../../context/AuthContext';
 
-const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
-  const handleLogout = async () => {
-    // remove user from session, update the state in App and redirect to /
+  const handleLogout = () => {
     sessionStorage.removeItem('user');
-    console.log('Removed user from storage');
     setIsAuthenticated(false);
-    console.log('updated isAuth flag');
     navigate('/');
-    console.log('navigated to /');
   };
 
   return (
@@ -23,14 +21,14 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
           <span>Ayuda</span>
         </div>
       </Link>
-        <div className="navbar-links">
-          <a href="/about">About</a>
-          {isAuthenticated && (
+      <div className="navbar-links">
+        <a href="/about">About</a>
+        {isAuthenticated && (
           <Link onClick={handleLogout} className="navbar-logout">Logout</Link>
         )}
-        </div>
+      </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
