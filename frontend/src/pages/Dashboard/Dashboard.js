@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import UserProfile from "../../components/User/UserProfile.js";
 import { getRecommendations } from "../../api/Recommendations.js";
 import "./Dashboard.css";
+import { AuthContext } from "../../context/AuthContext.js";
 
 export const Dashboard = () => {
+  const { user } = useContext(AuthContext); // Access user object from AuthContext
   const [recommendData, setRecommendData] = useState([]); // To store the API response
   const [loading, setLoading] = useState(false); // To show loading feedback
 
   // Function to fetch recommendations
   const fetchRecommendations = async () => {
+    console.log('User from context in Dashboard: ', user);
     setLoading(true); // Start loading
     try {
-      const response = await getRecommendations();
+      const response = await getRecommendations(user);
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

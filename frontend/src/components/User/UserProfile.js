@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loadUserFromSessionStorage } from "../../utils/SessionHandler.js";
 import { getUserByEmailId, updateUserById } from "../../api/UserRequests.js";
@@ -7,15 +7,14 @@ import { Button } from "../Buttons/Button.js";
 import { UserUpdatePopup } from "../Popups/UserUpdatePopup.js";
 import { SkillsSearchBar } from "../Search/SkillsSearchBar.js";
 import { DomainsSearchBar } from "../Search/DomainsSearchBar.js";
+import { AuthContext } from "../../context/AuthContext.js";
 
 const UserProfile = () => {
   const location = useLocation();
   const navigate = useNavigate();  // Add navigate for redirection if needed
-  const [user, setUser] = useState(null); // Directly store user object
-
+  const { user, setUser } = useContext(AuthContext);
   const [skills, setSkills] = useState([]);
   const [domains, setDomains] = useState([]);
-
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   // function to append skills from the search bar
@@ -66,7 +65,7 @@ const UserProfile = () => {
           setDomains(userData.data.career_path || []);
         } catch (error) {
           console.error("Failed to fetch user data:", error);
-          setUser(undefined);
+          setUser(null);
           setSkills([]); // Reset skills to an empty array on error
           setDomains([]); // Reset domains to an empty array on error
         }
@@ -78,7 +77,7 @@ const UserProfile = () => {
     }
 
     fetchUserData(); // Call the function to execute the operations
-  }, [location, navigate]);
+  }, [location, navigate, setUser ]);
 
   if (!user) {
     return <div>Loading user profile or user not logged in.</div>;
