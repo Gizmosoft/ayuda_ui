@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Buttons/Button.js";
+import { Button } from "../Buttons/Button.jsx";
 import './UserUpdatePopup.css';
 
 export const UserUpdatePopup = ({ closePopup }) => {

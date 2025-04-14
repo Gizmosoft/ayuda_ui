@@ -1,52 +1,95 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
 .navbar {
+  width: 100%;
+  background-color: white;
+  padding: 0.75rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d4bbff;
-  color: #333;
-  padding: 0 20px;
-  width: 100%;
-  position: fixed; /* Fix navbar to the top of the screen */
-  top: 0; /* Align the navbar at the top */
-  /* left: 0; Align the navbar to the left edge of the viewport */
-  z-index: 1000; /* Ensure the navbar stays on top of other content */
-  text-decoration: none;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
-.navbar-logo {
+.navbar-left {
   display: flex;
   align-items: center;
 }
 
-.navbar-link {
+.navbar-brand {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: black;
 }
 
 .logo {
-  width: 100px; /* Adjust based on your logo's size */
-  height: auto;
-  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
 }
 
-.navbar a {
-  color: #333;
+.brand-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Button styling */
+.btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
 }
 
-.navbar-links a:hover {
-  background-color: #bf9df9;
+.btn-orange {
+  background-color: #c19bff;
+  color: #fff;
+  border: 2px solid #c19bff;
 }
 
-.navbar-logout {
-  margin-left: 20px; /* Add margin if needed */
-  color: #333;
+.btn-orange:hover {
+  background-color: transparent;
+  color: #c19bff;
+}
+
+.btn-outline-orange {
+  background-color: transparent;
+  color: #f16d2c;
+  border: 2px solid #f16d2c;
+  text-decoration: none;
+}
+
+.btn-outline-orange:hover {
+  background-color: #ffe3d3;
+  color: #f16d2c;
+}
+
+/* Responsive - Stack buttons if needed */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
 }

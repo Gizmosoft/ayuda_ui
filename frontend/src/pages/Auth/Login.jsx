@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Access.css";
 import getBaseUrl from "../../utils/BaseUrl";
-import { BalloonNotif } from "../../components/Notifs/BalloonNotif.js";
-import { saveUserToSessionStorage } from "../../utils/SessionHandler.js";
-import { getUserByEmailId } from "../../api/UserRequests.js";
+import { BalloonNotif } from "../../components/Notifs/BalloonNotif";
+import { saveUserToSessionStorage } from "../../utils/SessionHandler";
+import { getUserByEmailId } from "../../api/UserRequests";
 import { AuthContext } from "../../context/AuthContext";
 
 export const Login = () => {

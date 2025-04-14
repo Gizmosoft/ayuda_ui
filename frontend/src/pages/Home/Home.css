@@ -1,56 +1,134 @@
-.home-control {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  min-height: 100vh;
+  background-color: #fff;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.control-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+.home-left {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  text-align: center; /* for better text alignment */
+  height: 100%;
+}
+
+.home-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #ff6b00;
+}
+
+.home-subtext {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .btn {
-    padding: 15px 40px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #c19bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #a27ee8;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #c19bff;
+  color: #a27ee8;
+}
+
+.btn-outline:hover {
+  background-color: #f4ecff;
+}
+
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
+.home-gif {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+/* ============================
+   📱 Mobile & Small Screens
+   ============================ */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+  }
 
-.btn-signup {
-    background-color: transparent;
-    border: 2px solid #FFDE8B;
-    color: #FFDE8B;
-}
-
-.btn-signup:hover {
-    background-color: #FFDE8B;
-    color: #fff;
-}
-
-.btn-login {
-    background-color: #f16d2c;
-    color: #fff;
-    border: 2px solid #f16d2c;
-}
-
-.btn-login:hover {
-    background-color: transparent;
-    color: #f16d2c;
-}
-
-.hero-logo-gif {
-    height: auto;
-    width: 450px;
-    margin-top: 40px;
-    object-fit: none;
+  .home-left,
+  .home-right {
+    max-width: 100%;
+    width: 100%;
     align-items: center;
+    justify-content: center;
+  }
+
+  .home-heading {
+    font-size: 2.25rem;
+  }
+
+  .home-subtext {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .home-gif {
+    max-width: 300px;
+    margin-top: 2rem;
+  }
 }
