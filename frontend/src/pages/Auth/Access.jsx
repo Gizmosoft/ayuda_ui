@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Access.css";
 import axios from "axios";
-import { BalloonNotif } from "../../components/Notifs/BalloonNotif.js";
+import { BalloonNotif } from "../../components/Notifs/BalloonNotif";
 import getBaseUrl from "../../utils/BaseUrl";
 
 export const Access = () => {

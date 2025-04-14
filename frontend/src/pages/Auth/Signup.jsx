@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Access.css";
 import { useNavigate } from "react-router-dom";
-import { saveUserToSessionStorage } from "../../utils/SessionHandler.js";
-import { getUserByEmailId } from "../../api/UserRequests.js";
-import { registerUser } from "../../api/AuthRequests.js";
+import { saveUserToSessionStorage } from "../../utils/SessionHandler";
+import { getUserByEmailId } from "../../api/UserRequests";
+import { registerUser } from "../../api/AuthRequests";
 
 const Signup = () => {
   const [emailId, setEmailId] = useState("");

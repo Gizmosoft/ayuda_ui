@@ -3,11 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { loadUserFromSessionStorage } from "../../utils/SessionHandler.js";
 import { getUserByEmailId, updateUserById } from "../../api/UserRequests.js";
 import "./UserProfile.css";
-import { Button } from "../Buttons/Button.js";
-import { UserUpdatePopup } from "../Popups/UserUpdatePopup.js";
-import { SkillsSearchBar } from "../Search/SkillsSearchBar.js";
-import { DomainsSearchBar } from "../Search/DomainsSearchBar.js";
-import { AuthContext } from "../../context/AuthContext.js";
+import { Button } from "../Buttons/Button.jsx";
+import { UserUpdatePopup } from "../Popups/UserUpdatePopup.jsx";
+import { SkillsSearchBar } from "../Search/SkillsSearchBar.jsx";
+import { DomainsSearchBar } from "../Search/DomainsSearchBar.jsx";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 const UserProfile = () => {
   const location = useLocation();

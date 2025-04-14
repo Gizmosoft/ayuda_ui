@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import UserProfile from "../../components/User/UserProfile.js";
+import UserProfile from "../../components/User/UserProfile.jsx";
 import { getRecommendations } from "../../api/Recommendations.js";
 import "./Dashboard.css";
-import { AuthContext } from "../../context/AuthContext.js";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 export const Dashboard = () => {
   const { user } = useContext(AuthContext); // Access user object from AuthContext

@@ -1,11 +1,10 @@
 import "./App.css";
-import "./components/Navbar/Navbar.js";
-import Navbar from "./components/Navbar/Navbar.js";
+import Navbar from "./components/Navbar/Navbar";
 import { Access } from "./pages/Auth/Access";
 import { Login } from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
-import { Dashboard } from "./pages/Dashboard/Dashboard.js";
-import { Maintenance } from "./pages/Maintenance/Maintenance.js";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import { Maintenance } from "./pages/Maintenance/Maintenance";
 import Home from "./pages/Home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
