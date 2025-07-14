@@ -1,0 +1,112 @@
+.resume-upload-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.upload-section,
+.parse-section,
+.courses-section,
+.skills-section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.upload-section:hover,
+.parse-section:hover,
+.courses-section:hover,
+.skills-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.file-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+  border-color: #f16d2c;
+  background-color: #fff8f5;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.upload-section {
+  animation: slideInUp 0.5s ease-out;
+}
+
+.parse-section {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.courses-section {
+  animation: slideInUp 0.7s ease-out;
+}
+
+.skills-section {
+  animation: slideInUp 0.8s ease-out;
+}
+
+/* Success animation */
+.success-animation {
+  animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .resume-upload-container {
+    padding: 1rem;
+  }
+  
+  .upload-section,
+  .parse-section,
+  .courses-section,
+  .skills-section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .file-upload-area {
+    padding: 1.5rem;
+  }
+} 

@@ -55,29 +55,26 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
-    async function fetchUserData() {
-      const userEmail = loadUserFromSessionStorage()?.email; // Safe chaining
-      if (userEmail) {
-        try {
-          const userData = await getUserByEmailId(userEmail);
+    const loadUserProfile = async () => {
+      try {
+        const userEmail = sessionStorage.getItem('user_email');
+        if (!userEmail) {
+          return;
+        }
+
+        const userData = await getUserByEmailId(userEmail);
+        if (userData) {
           setUser(userData.data);
           setSkills(userData.data.skills || []);
           setDomains(userData.data.career_path || []);
-        } catch (error) {
-          console.error("Failed to fetch user data:", error);
-          setUser(null);
-          setSkills([]); // Reset skills to an empty array on error
-          setDomains([]); // Reset domains to an empty array on error
         }
-      } else {
-        console.log("No user email found in session storage.");
-        setUser(null); // Set user to null if not found in session storage
-        navigate("/");  // Redirect to login if no user is found
+      } catch (error) {
+        console.error('Error loading user profile:', error);
       }
-    }
+    };
 
-    fetchUserData(); // Call the function to execute the operations
-  }, [location, navigate, setUser ]);
+    loadUserProfile();
+  }, []);
 
   if (!user) {
     return <div>Loading user profile or user not logged in.</div>;
