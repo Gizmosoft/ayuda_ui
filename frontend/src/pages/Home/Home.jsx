@@ -1,13 +1,13 @@
 import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import { homepageHeading, homepageTagline } from "../../utils/boilerplate";
+import { homepageHeading, homepageTagline } from "../../utils/Boilerplate.js";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const redirect = (redirectTo) => {
-    if (redirectTo === "signup") navigate("/access");
+    if (redirectTo === "signup") navigate("/signup");
     else if (redirectTo === "login") navigate("/login");
   };
 

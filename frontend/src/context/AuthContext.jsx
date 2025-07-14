@@ -9,10 +9,14 @@ export const AuthProvider = ({ children }) => {
 
   // Check session storage for user authentication status on initial load
   useEffect(() => {
+    console.log('AuthContext: Checking session storage...');
     const user = sessionStorage.getItem('user');
     if (user) {
+      console.log('AuthContext: User found in session storage');
       setIsAuthenticated(true);
       setUser(JSON.parse(user));
+    } else {
+      console.log('AuthContext: No user in session storage');
     }
   }, []);
 

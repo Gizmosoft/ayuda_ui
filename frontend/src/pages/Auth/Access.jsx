@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Access.css";
 import axios from "axios";
-import { BalloonNotif } from "../../components/Notifs/BalloonNotif";
-import getBaseUrl from "../../utils/BaseUrl";
+import { BalloonNotif } from "../../components/Notifs/BalloonNotif.jsx";
+import getBaseUrl from "../../utils/BaseUrl.js";
 
 export const Access = () => {
   const [accessCode, setAccessCode] = useState("");
@@ -17,18 +17,10 @@ export const Access = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    console.log(accessCode);
-    try {
-      // Make a POST request to your API endpoint with the access code
-      const response = await axios.post(baseUrl + "/auth/access", {
-        access_code: accessCode,
-      });
-      navigate('/signup')
-    } catch (error) {
-      console.error('Error:', error); 
-      setError(true); // Set error state to true to trigger Snackbar
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (accessCode.trim()) {
+      setAccessCode(accessCode.trim());
     }
   };
 

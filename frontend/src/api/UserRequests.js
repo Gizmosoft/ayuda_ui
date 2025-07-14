@@ -4,27 +4,28 @@ import axios from "axios";
 const baseUrl = getBaseUrl();
 
 export const getUserByEmailId = async (emailId) => {
-    const response = await axios.get(`${baseUrl}/users/get-user`, {
-        params: {
-          email: emailId,
-        }
-    });
-    return response;
-}
-
-export const updateUserById = async(emailId, skills, domains) => {
   try {
-    console.log(emailId);
-    console.log(skills);
-    console.log(domains);
-    const response = await axios.patch(`${baseUrl}/users/update-user`, {
-      email: emailId,
-      skills: skills,
-      career_path: domains
-    });
+    const response = await axios.get(`${baseUrl}/users/email/${emailId}`);
     return response.data;
-  } catch(error) {
-    console.error('Error updating user:', error);
-    throw error; 
+  } catch (error) {
+    throw new Error(error.response?.data?.detail || 'Failed to fetch user data');
   }
-}
+};
+
+export const updateUserSkills = async (emailId, skills) => {
+  try {
+    const response = await axios.put(`${baseUrl}/users/${emailId}/skills`, { skills });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.detail || 'Failed to update skills');
+  }
+};
+
+export const updateUserDomains = async (emailId, domains) => {
+  try {
+    const response = await axios.put(`${baseUrl}/users/${emailId}/domains`, { domains });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.detail || 'Failed to update domains');
+  }
+};
